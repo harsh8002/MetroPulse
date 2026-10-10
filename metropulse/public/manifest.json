@@ -1,0 +1,13 @@
+{
+  "name": "MetroPulse — Station Operations",
+  "short_name": "MetroPulse",
+  "description": "Offline-first incident reporting for metro station teams.",
+  "start_url": "/?view=employee",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f8faf8",
+  "theme_color": "#0c2924",
+  "icons": [
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

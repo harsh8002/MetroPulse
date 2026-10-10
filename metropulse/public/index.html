@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0c2924" />
+  <meta name="description" content="MetroPulse — station incident reporting for metro teams." />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/styles.css?v=1.2.0" />
+  <title>MetroPulse — Station Operations</title>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="/?view=employee" aria-label="MetroPulse home">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M7 25V9.3C7 6.9 8.9 5 11.3 5h9.4C23.1 5 25 6.9 25 9.3V25M7 18h18M11 25l-2 3m12-3 2 3M12 11h8M12 15h8"/></svg></span>
+        <span><strong>Metro<span>Pulse</span></strong><small>STATION OPERATIONS</small></span>
+      </a>
+      <div class="topbar-right">
+        <span id="network-pill" class="network-pill"><i></i><span>Checking connection</span></span>
+        <nav class="view-switch" aria-label="App view">
+          <a id="employee-nav" href="/?view=employee">Employee app</a>
+          <a id="admin-nav" href="/?view=admin">Admin console <span class="lock-symbol">↗</span></a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="employee-view" class="view">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="eyebrow-line"></span> ONE NETWORK. EVERY TEAM.</div>
+            <h1>See something?<br/><em>Report it.</em></h1>
+            <p class="hero-description">From station floor to control room. Make every issue visible, actionable, and accountable.</p>
+            <div class="hero-proof"><span class="proof-icon">✓</span> Reports save on this device, even offline.</div>
+          </div>
+          <div class="hero-art" aria-label="MetroPulse connects station teams with operations">
+            <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+            <div class="art-core"><span class="art-pulse"></span><svg viewBox="0 0 64 64"><path d="M18 51V18a7 7 0 0 1 7-7h14a7 7 0 0 1 7 7v33M18 34h28M25 22h14M25 28h14M24 51l-4 5m20-5 4 5"/></svg></div>
+            <div class="art-node node-a"><span>01</span><b>Spot</b></div><div class="art-node node-b"><span>02</span><b>Report</b></div><div class="art-node node-c"><span>03</span><b>Resolve</b></div>
+            <div class="art-caption"><span class="caption-dot"></span> EVERY REPORT COUNTS</div>
+          </div>
+        </div>
+
+        <div class="section-heading">
+          <div><div class="eyebrow muted">FIELD REPORTING</div><h2>Log a station issue</h2></div>
+          <span class="section-note"><span class="required-dot">*</span> Required fields</span>
+        </div>
+
+        <div class="employee-layout">
+          <section class="panel form-panel">
+            <div class="panel-heading"><div class="panel-icon">＋</div><div><h3>New incident report</h3><p>Share what happened so the right team can act.</p></div><span class="step-chip">NEW</span></div>
+            <form id="incident-form">
+              <div class="form-section-label"><span>01</span> YOUR DETAILS <small>Help the team follow up</small></div>
+              <div class="form-grid two-col">
+                <label class="field"><span>Your name <small>(optional)</small></span><input name="reporterName" maxlength="80" placeholder="e.g. R. Patel" autocomplete="name" /></label>
+                <label class="field"><span>Your role <b>*</b></span><select name="role" required><option value="">Choose your role</option><option>Sweeper / Housekeeping</option><option>Security</option><option>Technician</option><option>Ticketing staff</option><option>Station controller</option><option>Operations officer</option><option>Senior officer</option><option>Other</option></select></label>
+              </div>
+              <div class="form-section-label"><span>02</span> INCIDENT DETAILS <small>Where and what</small></div>
+              <div class="form-grid two-col">
+                <label class="field"><span>Station <b>*</b></span><select name="station" required><option value="">Select station</option><option>Mahatma Mandir</option><option>GIFT City</option><option>GNLU</option><option>Koba Circle</option><option>Dholakuva</option><option>Infocity</option><option>Sector 1</option><option>Sector 10A</option><option>Sachivalaya</option><option>Akshardham</option><option>Other</option></select></label>
+                <label class="field"><span>Issue type <b>*</b></span><select name="category" required><option value="">Select category</option><option>Cleaning &amp; hygiene</option><option>Electrical</option><option>Lift / escalator</option><option>Ticketing gate</option><option>Safety / security</option><option>Train / track</option><option>Signage / information</option><option>Other</option></select></label>
+                <label class="field full-field"><span>Exact location <b>*</b></span><input name="location" maxlength="100" required placeholder="e.g. Concourse, Gate 3, platform 1, near lift" /></label>
+              </div>
+              <div class="field severity-field"><span>How urgent is it? <b>*</b></span>
+                <div class="severity-options">
+                  <label class="severity-option"><input type="radio" name="severity" value="Low" required /><span class="severity-dot low"></span><span><b>Low</b><small>Minor issue</small></span></label>
+                  <label class="severity-option"><input type="radio" name="severity" value="Normal" /><span class="severity-dot normal"></span><span><b>Normal</b><small>Needs attention</small></span></label>
+                  <label class="severity-option"><input type="radio" name="severity" value="High" /><span class="severity-dot high"></span><span><b>High</b><small>Urgent</small></span></label>
+                  <label class="severity-option"><input type="radio" name="severity" value="Critical" /><span class="severity-dot critical"></span><span><b>Critical</b><small>Safety risk</small></span></label>
+                </div>
+              </div>
+              <label class="field description-field"><span>What did you observe? <b>*</b></span><textarea name="description" rows="4" minlength="8" maxlength="1000" required placeholder="Describe the problem and anything the response team should know…"></textarea><span class="field-foot"><small>Be clear and specific. Avoid including passenger personal data.</small><small id="char-count">0 / 1000</small></span></label>
+              <div class="form-error" id="form-error" role="alert"></div>
+              <button class="primary-button submit-button" type="submit"><span>Submit incident report</span><span class="button-arrow">↗</span></button>
+              <p class="form-footnote"><span class="shield-icon">◇</span> Your report is saved locally first. It syncs when a connection is available.</p>
+            </form>
+          </section>
+
+          <aside class="employee-side">
+            <section class="offline-card"><div class="offline-icon"><svg viewBox="0 0 24 24"><path d="M3 8.5a14 14 0 0 1 18 0M6.5 12a8.5 8.5 0 0 1 11 0M10 15.5a3 3 0 0 1 4 0M12 19h.01M3 3l18 18"/></svg></div><div class="side-card-label">BUILT FOR THE FIELD</div><h3>Signal drops.<br/>Reporting doesn't.</h3><p>Write your report anywhere. MetroPulse keeps it on your phone until it can reach the operations dashboard.</p><div class="offline-status"><span class="status-ring"></span><span id="queue-summary">Checking pending reports…</span></div></section>
+            <section class="recent-card panel"><div class="recent-heading"><div><div class="eyebrow muted">ON THIS DEVICE</div><h3>Your recent reports</h3></div><span id="mine-count" class="count-pill">0</span></div><div id="mine-list" class="mine-list"><div class="empty-mini"><span>↗</span><p>Your submitted reports will appear here.</p></div></div><button id="retry-sync" class="text-button" type="button">↻ Retry pending sync</button></section>
+            <div class="safety-note"><span class="safety-symbol">!</span><p><strong>Immediate danger?</strong> Follow station emergency procedures and alert the control room directly. Don't rely on this prototype for emergency dispatch.</p></div>
+          </aside>
+        </div>
+        <footer class="footer"><span>MetroPulse <b>·</b> Prototype for metro operations</span><span>BUILT FOR EVERY SHIFT <span class="footer-star">✳</span></span></footer>
+      </section>
+
+      <section id="admin-view" class="view hidden">
+        <div class="admin-hero"><div><div class="eyebrow"><span class="eyebrow-line"></span> OPERATIONS CONTROL</div><h1>Every issue.<br/><em>One view.</em></h1><p>Monitor station reports, prioritize response, and track resolution across teams.</p></div><div class="admin-hero-right"><div class="live-indicator"><span class="live-dot"></span> LIVE MONITORING</div><div class="admin-hero-number"><strong id="hero-total">—</strong><span>INCIDENTS<br/>ON RECORD</span></div></div></div>
+
+        <section id="admin-login-panel" class="panel login-panel">
+          <div class="login-symbol">⌘</div><div class="login-copy"><div class="eyebrow muted">RESTRICTED ACCESS</div><h2>Admin console</h2><p>Enter the demonstration admin PIN to view and manage submitted incidents.</p></div>
+          <form id="admin-login-form" class="login-form"><label class="field"><span>Admin PIN</span><input id="admin-pin" type="password" autocomplete="current-password" placeholder="Enter admin PIN" required /></label><button class="primary-button" type="submit">Unlock dashboard <span class="button-arrow">↗</span></button><div id="login-error" class="form-error" role="alert"></div><small>Demo PIN is in the project README. Change it before public deployment.</small></form>
+        </section>
+
+        <div id="admin-dashboard" class="hidden">
+          <div class="dashboard-toolbar"><div><div class="eyebrow muted">STATION-WIDE SNAPSHOT</div><h2>Operations overview</h2></div><div class="toolbar-actions"><span id="last-updated" class="updated-label">Waiting for first refresh…</span><button id="refresh-dashboard" class="secondary-button" type="button">↻ Refresh</button><button id="admin-logout" class="quiet-button" type="button">Sign out</button></div></div>
+          <div class="stats-grid">
+            <article class="stat-card"><div class="stat-top"><span>TOTAL REPORTS</span><span class="stat-icon ink">▤</span></div><strong id="stat-total">0</strong><small>All incidents recorded</small></article>
+            <article class="stat-card"><div class="stat-top"><span>OPEN</span><span class="stat-icon amber">○</span></div><strong id="stat-open">0</strong><small>Awaiting action</small></article>
+            <article class="stat-card"><div class="stat-top"><span>HIGH PRIORITY</span><span class="stat-icon red">⚑</span></div><strong id="stat-high">0</strong><small>High or critical severity</small></article>
+            <article class="stat-card"><div class="stat-top"><span>RESOLVED</span><span class="stat-icon green">✓</span></div><strong id="stat-resolved">0</strong><small>Marked as resolved</small></article>
+          </div>
+          <section class="panel report-panel"><div class="report-panel-heading"><div><div class="eyebrow muted">INCOMING FEED</div><h2>Incident register <span id="feed-count" class="count-pill">0</span></h2><p>Updates automatically every few seconds while this console is open.</p></div><button id="export-csv" class="secondary-button" type="button">↓ Export CSV</button></div>
+            <div class="filters"><label class="search-field"><span>⌕</span><input id="report-search" type="search" placeholder="Search ID, station, location…" /></label><label class="filter-select"><span>Status</span><select id="status-filter"><option value="All">All statuses</option><option>Open</option><option>In Progress</option><option>Resolved</option></select></label><label class="filter-select"><span>Priority</span><select id="severity-filter"><option value="All">All priorities</option><option>Critical</option><option>High</option><option>Normal</option><option>Low</option></select></label></div>
+            <div class="table-wrap"><table><thead><tr><th>INCIDENT</th><th>STATION / LOCATION</th><th>DESCRIPTION</th><th>REPORTED BY</th><th>PRIORITY</th><th>STATUS / ACTION</th></tr></thead><tbody id="report-table-body"><tr><td colspan="6" class="table-empty">Sign in to load reports.</td></tr></tbody></table></div><div id="no-results" class="no-results hidden">No reports match these filters.</div>
+          </section>
+          <div class="admin-footnote"><span>●</span> Auto-refresh enabled <span class="foot-separator">·</span> Prototype data stored by the shared server</div>
+        </div>
+        <footer class="footer"><span>MetroPulse <b>·</b> Prototype for metro operations</span><span>BUILT FOR EVERY SHIFT <span class="footer-star">✳</span></span></footer>
+      </section>
+    </main>
+    <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="true"></div>
+  </div>
+  <script src="/app.js?v=1.2.0" defer></script>
+</body>
+</html>

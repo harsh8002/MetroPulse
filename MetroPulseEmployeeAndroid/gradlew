@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -euo pipefail
+VERSION=8.9
+CACHE="${HOME}/.gradle/metropulse-gradle-${VERSION}"
+if [[ ! -x "${CACHE}/bin/gradle" ]]; then
+  command -v curl >/dev/null 2>&1 || { echo 'Install curl first.'; exit 1; }
+  command -v unzip >/dev/null 2>&1 || { echo 'Install unzip first.'; exit 1; }
+  TMP="$(mktemp -d)"
+  curl -fL "https://services.gradle.org/distributions/gradle-${VERSION}-bin.zip" -o "${TMP}/gradle.zip"
+  unzip -q "${TMP}/gradle.zip" -d "${TMP}"
+  mkdir -p "${HOME}/.gradle"
+  rm -rf "${CACHE}"
+  mv "${TMP}/gradle-${VERSION}" "${CACHE}"
+  rm -rf "${TMP}"
+fi
+exec "${CACHE}/bin/gradle" "$@"

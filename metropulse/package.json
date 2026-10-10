@@ -1,0 +1,9 @@
+{
+  "name": "metropulse",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Offline-first metro incident reporting prototype with admin dashboard",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" },
+  "engines": { "node": ">=18" }
+}
